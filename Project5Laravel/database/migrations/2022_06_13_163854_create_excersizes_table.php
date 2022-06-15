@@ -14,7 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('excersizes', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->increments("id")->unsigned(false);
+            $table->string('Name');
+            $table->string('Description');
+            $table->binary('Image');
             $table->timestamps();
         });
     }
