@@ -13,7 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('Users', function (Bluepring $table) {
+            $table->id('id');
+            $table->string("Gebruikersnaam");
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Users');
     }
 };

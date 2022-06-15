@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return Users::all();
     }
 
     /**
@@ -31,22 +31,22 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Users  $users
+     * @param  \App\Models\Users  $Users
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $users)
+    public function show(Users $Users)
     {
-        //
+        return $Users;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Users  $users
+     * @param  \App\Models\Users  $Users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $request, Users $Users)
     {
         //
     }
@@ -54,10 +54,10 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Users  $users
+     * @param  \App\Models\Users  $Users
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $users)
+    public function destroy(Users $Users)
     {
         //
     }

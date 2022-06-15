@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Users extends Model
 {
     use HasFactory;
+    protected $table = "Users";
+    protected $fillable = [
+        "id",
+        "Gebruikersnaam"
+    ];
+    public $timestamps = false;
 }
