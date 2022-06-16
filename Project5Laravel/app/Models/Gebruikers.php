@@ -11,7 +11,7 @@ class Gebruikers extends Model
     protected $table = "Gebruikers";
     protected $fillable = [
         "id",
-        "Naam"
+        "Naam",
     ];
     public $timestamps = false;
 }

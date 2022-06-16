@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Modeks\Gebruikers;
+use App\Models\Gebruikers;
 
 class GebruikersSeeder extends Seeder
 {
