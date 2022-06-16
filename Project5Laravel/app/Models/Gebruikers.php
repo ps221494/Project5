@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gebruikers extends Model
 {
     use HasFactory;
-    protected $table = "Gebruikers";
+    protected $table = "gebruikers";
     protected $fillable = [
         "id",
         "Naam",
