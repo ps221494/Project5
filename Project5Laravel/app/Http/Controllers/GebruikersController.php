@@ -14,7 +14,7 @@ class GebruikersController extends Controller
      */
     public function index()
     {
-        //
+        return Gebruikers::all();
     }
 
     /**
@@ -36,7 +36,7 @@ class GebruikersController extends Controller
      */
     public function show(Gebruikers $gebruikers)
     {
-        //
+        return $gebruikers;
     }
 
     /**
