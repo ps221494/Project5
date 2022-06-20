@@ -25,4 +25,8 @@ Route::get('/oefeningen', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('oefeningen');
 
+Route::get('/users', function () {
+    return view('dashboard');
+})->middlewere(['auth'])->name('users');
+
 require __DIR__.'/auth.php';
