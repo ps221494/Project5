@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\excersizes;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Log;
 
-class APIexcersizes extends Controller
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+class excersizes extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $excersizes = excersizes::all();
-        return response()->json($excersizes);
+        $id = Auth::id();
+        $excersizes = DB::table('excersizes');
+        return view('oefeningen.index', compact('excersizes', 'id'));
     }
-  
 
     /**
      * Show the form for creating a new resource.
@@ -48,10 +49,9 @@ class APIexcersizes extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, excersizes $excersizes)
+    public function show($id)
     {
-        $excersizes = excersizes::find($excersizes);
-        return response()->json($excersizes);
+        //
     }
 
     /**

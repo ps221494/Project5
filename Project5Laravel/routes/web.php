@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\excersizes;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+Route::get('/excersizes',[excerzies::class,'oefeningen.index']);
+Route::resource('excersizes', excersizes::class);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-Route::get('/oefeningen', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('oefeningen');
 
 require __DIR__.'/auth.php';

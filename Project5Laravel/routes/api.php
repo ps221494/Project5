@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\APIexcersizes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GebruikersController;
+use App\Http\Controllers\AuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,11 @@ use App\Http\Controllers\GebruikersController;
 |
 */
 
-Route::apiResource('gebruikers', GebruikersController::class);
+Route::post('/register', [AuthenticationController::class, 'register']);
+Route::post('/login', [AuthenticationController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-    
-});
+
+//protected routes
+
+  Route::apiResource('/excersizes', APIexcersizes::class);
+
