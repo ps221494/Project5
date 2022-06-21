@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\excersizes;
+use App\Http\Controllers\users;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/', function () {
 
 Route::get('/excersizes',[excerzies::class,'oefeningen.index']);
 Route::resource('excersizes', excersizes::class);
+
+Route::get('/users',[users::class]);
+Route::get('users', users::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
