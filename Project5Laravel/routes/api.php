@@ -4,6 +4,7 @@ use App\Http\Controllers\APIexcersizes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GebruikersController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthenticationController;
 
 /*
@@ -17,6 +18,7 @@ use App\Http\Controllers\AuthenticationController;
 |
 */
 
+Route::apiResource('users', UserController::class);
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 
