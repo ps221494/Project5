@@ -18,12 +18,19 @@ class Users extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-'name' => 'Admin',
-'email' => 'Admin@mail.com',
-'password' => Hash::make('Admin'),
-'created_at' => now(),
-'updated_at' => now(),
-        
+            'name' => 'Admin',
+            'email' => 'Admin@mail.com',
+            'password' => Hash::make('Admin'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Test',
+            'email' => 'Test@mail.com',
+            'password' => Hash::make('Test'),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }
