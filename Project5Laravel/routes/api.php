@@ -26,4 +26,3 @@ Route::post('/login', [AuthenticationController::class, 'login']);
 //protected routes
 
   Route::apiResource('/excersizes', APIexcersizes::class);
-
