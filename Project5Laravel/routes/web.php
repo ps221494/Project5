@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\excersizes;
+
+/*use App\Http\Controllers\excersizes;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,3 @@ Route::resource('excersizes', excersizes::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
