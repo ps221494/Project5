@@ -19,7 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/users', function () {
+    return view('users');
+});
 
 Route::get('/excersizes',[excerzies::class,'oefeningen.index']);
 Route::resource('excersizes', excersizes::class);
