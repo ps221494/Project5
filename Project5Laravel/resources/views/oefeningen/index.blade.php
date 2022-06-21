@@ -25,7 +25,7 @@
 
 <script>
     "use strict"
-    const apiBasis = ""
+    const apiBasis = "http://127.0.0.1:8000/api/excersizes"
     const apiExcersizes = apiBasis + "excersizes/"
 
     const laadExcersizes = async () => {

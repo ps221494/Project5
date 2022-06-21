@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { ActivityIndicator, Button, Provider as PaperProvider } from 'react-native-paper';
 
 const ExcersizesScreen = ({ navigation }) => {
-    const apiExcersizes = 'http://127.0.0.1:8000';
+    const apiExcersizes = 'http://127.0.0.1:8000/api/excersizes';
     const [isExcersizesAvailable, setExcersizesAvailable] = useState(false);
     const [ExcersizesData, setExcersizesData] = useState(null);
 
@@ -33,8 +33,8 @@ const RenderExcersizes = ({ item }) => {
     console.log(item);
     return (
         <View style={styles.excersizesonItem}>
-            <Pressable onPress={() => navigation.navigate('stackExcersizesDetailScreen', { item: item })}>
-                <Text style={styles.excersizesonItemText}>{item.name}</Text>
+            <Pressable onPress={() => navigation.navigate('stackExcersizesDetails', { item: item })}>
+                <Text style={styles.excersizesonItemText}>{item.Name}</Text>
             </Pressable>
         </View>
     )

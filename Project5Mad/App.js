@@ -1,9 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import ExcersizesScreen from './components/ExcersizesScreen';
 import LoginScreen from './components/LoginScreen';
 import ExcersizesDetailScreen from './components/ExcersizesDetailScreen';
@@ -20,7 +20,6 @@ function ExcersizesStack() {
   );
 }
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,7 +27,7 @@ function ExcersizesTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="tabLogin" component={LoginScreen} />
-      <Tab.Screen name="tabExercise" component={ExcersizesStack} />
+      <Tab.Screen name="tabExcercise" component={ExcersizesStack} />
     </Tab.Navigator>
   );
 }
