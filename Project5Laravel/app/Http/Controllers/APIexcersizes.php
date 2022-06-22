@@ -16,8 +16,19 @@ class APIexcersizes extends Controller
      */
     public function index(Request $request)
     {
-        $excersizes = excersizes::all();
-        return response()->json($excersizes);
+        try {
+            $data = excersizes::all();
+
+            $content = [
+                'success' => true,
+                'data'    => $data,
+            ];
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+         }
+
+      //  $excersizes = excersizes::all();
+        return response()->json($content);
     }
   
 
@@ -85,6 +96,8 @@ class APIexcersizes extends Controller
      */
     public function destroy($id)
     {
-        //
+        $excersizes = excersizes::find($id);
+        $excersizes->delete();
+        return response()->json($excersizes);
     }
 }
