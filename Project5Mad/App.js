@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ExcersizesScreen from './components/ExcersizesScreen';
 import LoginScreen from './components/LoginScreen';
 import ExcersizesDetailScreen from './components/ExcersizesDetailScreen';
+import Over from './components/Over';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ function ExcersizesStack() {
       <Stack.Screen name="stackLogin" component={LoginScreen} />
       <Stack.Screen name="stackExcersizes" component={ExcersizesScreen} />
       <Stack.Screen name="stackExcersizesDetails" component={ExcersizesDetailScreen} />
+     
     </Stack.Navigator>
   );
 }
@@ -28,6 +30,7 @@ function ExcersizesTabs() {
     <Tab.Navigator>
       <Tab.Screen name="tabLogin" component={LoginScreen} />
       <Tab.Screen name="tabExcercise" component={ExcersizesStack} />
+      <Tab.Screen name="Over de App" component={Over} />
     </Tab.Navigator>
   );
 }
