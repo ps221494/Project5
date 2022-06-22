@@ -10,7 +10,7 @@
     <title>Users</title>
 </head>
 
-<body onload="laadExcersizes()">
+<body onload="laadUsers()">
     <table>
         <tr>
             <th scope="col">id</th>
@@ -23,11 +23,11 @@
 
 <script>
     "use strict"
-    const apiBasis = ""
+    const apiBasis = "http://localhost:8000/api/"
     const apiUsers = apiBasis + "users/"
 
-    const laadExcersizes = async () => {
-        console.log('Laad gegevens')
+    const laadUsers = async () => {
+        console.log('Laad users')
         //const response = await fetch(apiGebruikers)
         //const json = await response.json()
         const response = await axios.get(apiUsers)
