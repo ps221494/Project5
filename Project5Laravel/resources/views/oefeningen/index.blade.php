@@ -28,11 +28,8 @@
 
 <script>
     "use strict"
-<<<<<<< HEAD
     const apiBasis = "http://127.0.0.1:8000/api/excersizes"
-=======
     const apiBasis = "http://localhost:8000/api/"
->>>>>>> fcdaed2dd2091e9548a47cdd0dc1f727a5ac647b
     const apiExcersizes = apiBasis + "excersizes/"
     
   //  const axios = require('axios');
