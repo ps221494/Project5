@@ -31,9 +31,10 @@
         console.log('Laad users')
         const response = await axios.get(apiUsers)
         const json = await response.data
+        console.log(json);
         let tabelInhoud = ''
         json.map(el => tabelInhoud +=
-            `<tr><td>${el.id}</td><td>${el.Name}</td><td onclick="verwijder(${el.id})">x</td></tr>`
+            `<tr><td>${el.id}</td><td>${el.name}</td><button onclick="verwijder(${el.id})">x</button></tr>`
             )
         document.querySelector("#tabelInhoudUsers").innerHTML = tabelInhoud
 
