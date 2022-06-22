@@ -32,5 +32,15 @@ class excersizesSeeder extends Seeder
             'Description' => 'maak een Dip',
             'Image' => 'Image 3',
         ]);
+        DB::table('excersizes')->insert([
+            'Name' => 'Plank',
+            'Description' => 'maak een Plank',
+            'Image' => 'Image 4',
+        ]);
+        DB::table('excersizes')->insert([
+            'Name' => 'Paardentrap',
+            'Description' => 'maak een Paartdentrap',
+            'Image' => 'Image 5',
+        ]);
 }
 }
