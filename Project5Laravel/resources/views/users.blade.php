@@ -29,8 +29,6 @@
 
     const laadUsers = async () => {
         console.log('Laad users')
-        //const response = await fetch(apiGebruikers)
-        //const json = await response.json()
         const response = await axios.get(apiUsers)
         const json = await response.data
         let tabelInhoud = ''
