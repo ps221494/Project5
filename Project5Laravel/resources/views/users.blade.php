@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
-<body onload="laadUsers()">
+<body onload="laad()">
     <table>
         <tr>
             <th scope="col">id</th>
@@ -27,11 +27,23 @@
     const apiBasis = "http://localhost:8000/api/"
     const apiUsers = apiBasis + "users/"
 
+    const laad = async () => {
+        laadUsers()
+    }
+
     const laadUsers = async () => {
         console.log('Laad users')
-        const response = await axios.get(apiUsers)
+
+        const response = await axios.get(apiUsers, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+
         const json = await response.data
         console.log(json);
+
         let tabelInhoud = ''
         json.map(el => tabelInhoud +=
             `<tr><td>${el.id}</td><td>${el.name}</td><button onclick="verwijder(${el.id})">x</button></tr>`
@@ -39,6 +51,18 @@
         document.querySelector("#tabelInhoudUsers").innerHTML = tabelInhoud
 
     }
+
+    const verwijder = async (id) => {
+        const response = await axios.delete(apiUsers + id, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        console.log(response)
+        laad();
+    }
+
 </script>
 
 </html>
