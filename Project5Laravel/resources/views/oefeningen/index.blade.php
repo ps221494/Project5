@@ -19,6 +19,7 @@
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Image</th>
+            <th scope="col">verwijder</th>
         </tr>
         
         <tbody id="tabelInhoudExcersizes"> </tbody>
@@ -28,11 +29,7 @@
 
 <script>
     "use strict"
-<<<<<<< HEAD
-    const apiBasis = "http://127.0.0.1:8000/api/excersizes"
-=======
     const apiBasis = "http://localhost:8000/api/"
->>>>>>> fcdaed2dd2091e9548a47cdd0dc1f727a5ac647b
     const apiExcersizes = apiBasis + "excersizes/"
     
   //  const axios = require('axios');
@@ -61,17 +58,6 @@
             `<tr><td>${el.id}</td><td>${el.Name}</td><td>${el.Description}</td><td>${el.Image}</td><button onclick="verwijder(${el.id})">x</button></tr>`)
         document.querySelector("#tabelInhoudExcersizes").innerHTML = tabelInhoud
        }
-        /*
-        const response = await fetch(apiExcersizes)
-        console.log(response);
-        const json = await response.data
-        console.log(json)
-       
-       let tabelInhoud = ''
-        json.map(el => tabelInhoud +=
-            `<tr><td>${el.id}</td><td>${el.Name}</td><td>${el.Description}</td><td>${el.Image}</td><td onclick="verwijder(${el.id})">x</td></tr>`)
-        document.querySelector("#tabelInhoudExcersizes").innerHTML = tabelInhoud*/
-    
 
     const laad = async () => {
         laadExcersizes()
