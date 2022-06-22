@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Oefeningen</title>
@@ -20,7 +20,7 @@
             <th scope="col">Description</th>
             <th scope="col">Image</th>
         </tr>
-        
+
         <tbody id="tabelInhoudExcersizes"> </tbody>
     </table>
 
@@ -28,10 +28,9 @@
 
 <script>
     "use strict"
-    const apiBasis = "http://127.0.0.1:8000/api/excersizes"
     const apiBasis = "http://localhost:8000/api/"
     const apiExcersizes = apiBasis + "excersizes/"
-    
+
   //  const axios = require('axios');
 //let functies = []
 //let json = null
@@ -63,12 +62,12 @@
         console.log(response);
         const json = await response.data
         console.log(json)
-       
+
        let tabelInhoud = ''
         json.map(el => tabelInhoud +=
             `<tr><td>${el.id}</td><td>${el.Name}</td><td>${el.Description}</td><td>${el.Image}</td><td onclick="verwijder(${el.id})">x</td></tr>`)
         document.querySelector("#tabelInhoudExcersizes").innerHTML = tabelInhoud*/
-    
+
 
     const laad = async () => {
         laadExcersizes()
