@@ -29,13 +29,6 @@
 
 <script>
     "use strict"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    const apiBasis = "http://127.0.0.1:8000/api/excersizes"
-=======
->>>>>>> 982a9e7877e83856a9cebb2dcdfe74f3b05451de
->>>>>>> ccb19d09be968b2da7904a1727f20a1840d5ca19
     const apiBasis = "http://localhost:8000/api/"
     const apiExcersizes = apiBasis + "excersizes/"
 
@@ -65,20 +58,6 @@
             `<tr><td>${el.id}</td><td>${el.Name}</td><td>${el.Description}</td><td>${el.Image}</td><button onclick="verwijder(${el.id})">x</button></tr>`)
         document.querySelector("#tabelInhoudExcersizes").innerHTML = tabelInhoud
        }
-<<<<<<< HEAD
-        /*
-        const response = await fetch(apiExcersizes)
-        console.log(response);
-        const json = await response.data
-        console.log(json)
-
-       let tabelInhoud = ''
-        json.map(el => tabelInhoud +=
-            `<tr><td>${el.id}</td><td>${el.Name}</td><td>${el.Description}</td><td>${el.Image}</td><td onclick="verwijder(${el.id})">x</td></tr>`)
-        document.querySelector("#tabelInhoudExcersizes").innerHTML = tabelInhoud*/
-
-=======
->>>>>>> ccb19d09be968b2da7904a1727f20a1840d5ca19
 
     const laad = async () => {
         laadExcersizes()

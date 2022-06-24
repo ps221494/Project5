@@ -18,7 +18,6 @@ class APIexcersizes extends Controller
     {
         try {
             $data = excersizes::all();
-
             $content = [
                 'success' => true,
                 'data'    => $data,
