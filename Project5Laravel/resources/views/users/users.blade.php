@@ -20,6 +20,10 @@
         <tbody id="tabelInhoudUsers" />
     </table>
 
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{ route('users.create') }}"> Create new user</a>
+    </div>
+
 </body>
 
 <script>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\excersizes;
+use App\Http\Controllers\UserController;
 /*use App\Http\Controllers\excersizes;
 
 /*
@@ -19,9 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users', function () {
-    return view('users');
-});
+Route::get('/users',[UserController::class,'users.users']);
+    Route::resource('users', UserController::class);
 
 Route::get('/excersizes',[excerzies::class,'oefeningen.index']);
 Route::resource('excersizes', excersizes::class);
