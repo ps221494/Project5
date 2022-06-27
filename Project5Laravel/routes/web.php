@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 
-Route::get('/excersizes',[excerzies::class,'oefeningen.index']);
+Route::get('/excersizes',[excerzies::class,'oefeningen'])->middleware(['auth']);
 Route::resource('excersizes', excersizes::class);
 
 Route::get('/dashboard', function () {
