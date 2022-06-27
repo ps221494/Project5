@@ -16,9 +16,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return User::all();
-        return view('users.users', ['users' => $user]);
+    {   $id = Auth::id();
+        $users = DB::table('users');
+        return view('users.index', compact('users', 'id'));
     }
 
     public function create()

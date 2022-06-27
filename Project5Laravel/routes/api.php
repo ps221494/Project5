@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\APIexcersizes;
+use App\Http\Controllers\APIusers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GebruikersController;
@@ -19,10 +20,11 @@ use App\Http\Controllers\excersizes;
 |
 */
 
-Route::apiResource('users', UserController::class);
+//Route::apiResource('users', UserController::class);
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 Route::apiResource('/excersizes', APIexcersizes::class);
+Route::apiResource('/users', APIusers::class);
 
 //protected routes
 
