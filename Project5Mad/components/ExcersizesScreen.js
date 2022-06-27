@@ -1,46 +1,51 @@
+import 'react-native-gesture-handler';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { ActivityIndicator, Button, Provider as PaperProvider } from 'react-native-paper';
 
 const ExcersizesScreen = ({ navigation }) => {
-    const apiExcersizes = 'http://127.0.0.1:8000/api/excersizes';
-    const [isExcersizesAvailable, setExcersizesAvailable] = useState(false);
-    const [ExcersizesData, setExcersizesData] = useState(null);
+  const apiExcersizes = 'http://localhost:8000/api/excersizes/';
+  const [isExcersizesAvailable, setExcersizesAvailable] = useState(false);
+  const [ExcersizesData, setExcersizesData] = useState(null);
 
-    useEffect(() => { GetExcersizes(); }, []);
+  useEffect(() => { GetExcersizes(); }, []);
 
-    const BehandelFout = (error) => {
-        console.log(error);
-        setExcersizesData(
-            { 
-                        Name: "***ERROR***",
+  const BehandelFout = (error) => {
+    console.log(error);
+    setExcersizesData(
+      {
+        data: [
+          {
+            Name: "***ERROR***",
+          }
+        ]
       }
     )
   }
 
-const GetExcersizes = () => {
+  const GetExcersizes = () => {
     fetch(apiExcersizes)
-        .then((response) => response.json())
-        .then((data) => {
-            setExcersizesData(data);
-            // console.log(data);
-        })
-        .catch((error) => BehandelFout(error))
-        .finally(() => setExcersizesAvailable(true));
-}
+      .then((response) => response.json())
+      .then((data) => {
+        setExcersizesData(data);
+        console.log(data);
+      })
+      .catch((error) => BehandelFout(error))
+      .finally(() => setExcersizesAvailable(true));
+  }
 
-const RenderExcersizes = ({ item }) => {
+  const RenderExcersizes = ({ item }) => {
     console.log(item);
     return (
-        <View style={styles.excersizesonItem}>
-            <Pressable onPress={() => navigation.navigate('stackExcersizesDetails', { item: item })}>
-                <Text style={styles.excersizesonItemText}>{item.Name}</Text>
-            </Pressable>
-        </View>
+      <View >
+        <Pressable onPress={() => navigation.navigate('stackExcersizesDetails', { item: item })}>
+          <Text style={styles.excersizeItemText}>{item.name}</Text>
+        </Pressable>
+      </View>
     )
-}
+  }
 
-return (
+  return (
     <PaperProvider>
       <View style={styles.container}>
         {isExcersizesAvailable
@@ -48,8 +53,8 @@ return (
           (
             <View style={styles.container}>
               <FlatList
-                style={styles.excersizesList}
-                data={ExcersizesData.excersizes}
+                style={styles.excersizeList}
+                data={ExcersizesData.data}
                 renderItem={RenderExcersizes}
                 keyExtractor={(item, index) => index}
               />
@@ -62,25 +67,17 @@ return (
         }
       </View>
     </PaperProvider>
-    
   )
 }
 
 export default ExcersizesScreen
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'lightgreen',
-  },
+  container: { flex: 1, backgroundColor: 'lightgreen' },
   activityIndicator: { flex: 1, },
-  amiiboList: { flexGrow: 1, backgroundColor: 'grey', },
-  amiiboItem: { marginHorizontal: 10, marginVertical: 3, backgroundColor: 'black', },
-  amiiboItemText: { fontSize: 15, color: 'wheat', padding: 10 },
-
+  excersizeList: { flexGrow: 1, backgroundColor: 'grey', color: 'red' },
+  excersizeItem: { marginHorizontal: 10, marginVertical: 3, backgroundColor: 'black', },
+  excersizeItemText: { fontSize: 15, color: 'red', padding: 10 },
   navButtons: { flexDirection: 'row', alignSelf: 'center', },
-
   button: { flexGrow: 1, marginHorizontal: 10, },
-
-
 });

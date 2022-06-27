@@ -14,10 +14,8 @@ const Stack = createStackNavigator();
 function ExcersizesStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="stackLogin" component={LoginScreen} />
-      <Stack.Screen name="stackExcersizes" component={ExcersizesScreen} />
+      <Stack.Screen name='home' component={ExcersizesTabs}/>
       <Stack.Screen name="stackExcersizesDetails" component={ExcersizesDetailScreen} />
-     
     </Stack.Navigator>
   );
 }
@@ -29,7 +27,7 @@ function ExcersizesTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="tabLogin" component={LoginScreen} />
-      <Tab.Screen name="tabExcercise" component={ExcersizesStack} />
+      <Stack.Screen name="stackExcersizes" component={ExcersizesScreen} />    
       <Tab.Screen name="Over de App" component={Over} />
     </Tab.Navigator>
   );
@@ -38,7 +36,7 @@ function ExcersizesTabs() {
 const App = () => {
   return (
     <NavigationContainer>
-      <ExcersizesTabs/>
+      <ExcersizesStack/>
     </NavigationContainer>
   );
 }

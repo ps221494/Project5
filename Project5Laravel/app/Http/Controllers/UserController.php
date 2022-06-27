@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,6 +18,14 @@ class UserController extends Controller
     public function index()
     {
         return User::all();
+        return view('users.users', ['users' => $user]);
+    }
+
+    public function create()
+    {
+        //if (Auth::check()) {
+        return view('users.create');
+        //}
     }
 
     /**
@@ -57,8 +68,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $users = User::find($id);
+        $users->delete();
+        return response()->json($users);
     }
 }

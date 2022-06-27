@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\excersizes;
+use App\Http\Controllers\UserController;
 /*use App\Http\Controllers\excersizes;
 
 /*
@@ -19,7 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/users',[UserController::class,'users.users']);
+    Route::resource('users', UserController::class);
 
 Route::get('/excersizes',[excerzies::class,'oefeningen'])->middleware(['auth']);
 Route::resource('excersizes', excersizes::class);
