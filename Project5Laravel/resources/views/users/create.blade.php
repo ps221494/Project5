@@ -14,15 +14,32 @@
 <body>
     <table>
         <tr>
-            <th scope="col">id</th><td><p>test</p></td>
+            <th scope="col">id</th>
             <th scope="col">Name</th>
         </tr>
         <tbody id="tabelInhoudUsers" />
     </table>
 
-    <div class="pull-right">
+    <form method="POST" action="{{ route('users.store') }}">
+        <div class="form-user">
+            @csrf
+            <label for="name">Name</label>
+            <input type="text" class="control-user" name="name"/>
+        </div>
+        <div class="form-user">
+            <label for="email">Email</label>
+            <input type="text" class="control-user" name="email"/>
+        </div>
+        <div class="form-user">
+            <label for="password">Password</label>
+            <input type="text" class="control-user" name="password"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+
+    {{-- <div class="pull-right">
         <a class="btn btn-primary" onclick="create()" href="{{ route('users.index') }}"> Create new user</a>
-    </div>
+    </div> --}}
 
 </body>
 

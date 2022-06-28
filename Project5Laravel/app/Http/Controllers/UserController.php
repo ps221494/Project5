@@ -36,7 +36,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request ->validate([
+            'name' => 'required|max:50',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        $show = User::create($validateData);
+
+        return redirect('/users')->with('succes', 'User succesfully created');
     }
 
     /**

@@ -16,6 +16,8 @@
         <tr>
             <th scope="col">id</th>
             <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
         </tr>
         <tbody id="tabelInhoudUsers" />
     </table>
@@ -50,7 +52,7 @@
 
         let tabelInhoud = ''
         json.data.map(el => tabelInhoud +=
-            `<tr><td>${el.id}</td><td>${el.name}</td><button onclick="verwijder(${el.id})">x</button></tr>`
+            `<tr><td>${el.id}</td><td>${el.name}</td><td>${el.email}</td><td>${el.password}</td><button onclick="verwijder(${el.id})">x</button></tr>`
             )
         document.querySelector("#tabelInhoudUsers").innerHTML = tabelInhoud
 
