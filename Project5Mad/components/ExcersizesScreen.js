@@ -37,9 +37,9 @@ const ExcersizesScreen = ({ navigation }) => {
   const RenderExcersizes = ({ item }) => {
     console.log(item);
     return (
-      <View >
+      <View style={styles.excersizeItem}>
         <Pressable onPress={() => navigation.navigate('stackExcersizesDetails', { item: item })}>
-          <Text style={styles.excersizeItemText}>{item.name}</Text>
+          <Text style={styles.excersizeItemText}>{item.Name}</Text>
         </Pressable>
       </View>
     )
@@ -75,9 +75,9 @@ export default ExcersizesScreen
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: 'lightgreen' },
   activityIndicator: { flex: 1, },
-  excersizeList: { flexGrow: 1, backgroundColor: 'grey', color: 'red' },
-  excersizeItem: { marginHorizontal: 10, marginVertical: 3, backgroundColor: 'black', },
-  excersizeItemText: { fontSize: 15, color: 'red', padding: 10 },
-  navButtons: { flexDirection: 'row', alignSelf: 'center', },
-  button: { flexGrow: 1, marginHorizontal: 10, },
+  excersizeList: { flex: 1, flexGrow: 1, backgroundColor: 'grey', color: 'red' },
+  excersizeItem: { flex: 1, marginHorizontal: 10, marginVertical: 3, backgroundColor: 'black', },
+  excersizeItemText: { flex: 1, fontSize: 15, color: 'white', padding: 10 },
+  navButtons: { flex: 1, flexDirection: 'row', alignSelf: 'center', },
+  button: { flex: 1, flexGrow: 1, marginHorizontal: 10, },
 });
