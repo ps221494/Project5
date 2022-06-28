@@ -57,6 +57,13 @@ class UserController extends Controller
         return $user;
     }
 
+    public function edit($user)
+    {
+        $user = User::findOrFail($id);
+
+        return view('edit', compact('Users'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -66,7 +73,14 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|max:50',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        User::whereId($id)->update($validateData);
+
+        return redirect('/users')->with('succes', 'User succesfully updated');
     }
 
     /**
