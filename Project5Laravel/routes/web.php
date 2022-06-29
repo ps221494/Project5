@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::get('/users',[UserController::class,'users']);
     Route::resource('users', UserController::class);
 
+
 Route::get('/excersizes',[excerzies::class,'oefeningen'])->middleware(['auth']);
 Route::resource('excersizes', excersizes::class);
 
