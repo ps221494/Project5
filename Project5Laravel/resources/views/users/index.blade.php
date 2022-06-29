@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Users</title>
@@ -12,14 +13,14 @@
 </head>
 
 <body onload="laad()">
-    <table>
+    <table class="basis-44">
         <tr>
             <th scope="col">id</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Password</th>
         </tr>
-        <tbody id="tabelInhoudUsers" />
+        <tbody id="tabelInhoudUsers"/>
     </table>
 
     <div class="pull-right">
@@ -53,7 +54,7 @@
             let tabelInhoud = ''
             users.map(el => tabelInhoud +=
 
-                `<tr>
+                `<tr class="flex-container">
                 <td>${el.id}</td>
                 <td>${el.name}</td>
                 <td>${el.email}</td>
