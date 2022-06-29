@@ -8,7 +8,8 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from 'react';
+//import React from "react";
 
 export default function App() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("../assets/SummaLogo.png")} />
+  
 
       <StatusBar style="auto" />
       <View style={styles.inputView}>

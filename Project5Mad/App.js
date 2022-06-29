@@ -1,5 +1,4 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   Text,
@@ -25,10 +24,7 @@ function ExcersizesStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="home" component={ExcersizesTabs} />
-      <Stack.Screen
-        name="stackExcersizesDetails"
-        component={ExcersizesDetailScreen}
-      />
+      <Stack.Screen name="stackExcersizesDetails" component={ExcersizesDetailScreen} />
     </Stack.Navigator>
   );
 }
@@ -52,11 +48,6 @@ const App = () => {
     </NavigationContainer>
   );
 };
-
-{
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-}
 
 export default App;
 
