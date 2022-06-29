@@ -58,12 +58,10 @@
                 <td>${el.name}</td>
                 <td>${el.email}</td>
                 <td>${el.password}</td>
-
-
                 <button onclick="verwijder(${el.id})">x</button>
+                <a class="btn btn-primary" href="edit/${el.id}">Edit</a>
             </tr>
             `
-           
             )
             document.querySelector("#tabelInhoudUsers").innerHTML = tabelInhoud
         } catch (error) {
