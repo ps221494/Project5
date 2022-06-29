@@ -39,30 +39,37 @@
 
     const laadUsers = async () => {
         console.log('Laad users')
+        try {
+            const response = await axios.get(apiUsers, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
 
-        const response = await axios.get(apiUsers, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
+            const json = await response.data
 
-        const json = await response.data
-       // console.log(json);
+             const users = json.data;
+            let tabelInhoud = ''
+            users.map(el => tabelInhoud +=
 
-        let tabelInhoud = ''
-        json.data.map(el => tabelInhoud +=
-            `<tr>
+                `<tr>
                 <td>${el.id}</td>
                 <td>${el.name}</td>
                 <td>${el.email}</td>
                 <td>${el.password}</td>
-                <td><a href="{{ route('users.edit', ${el.id})}}" class="btn btn-primary">Edit</a></td>
+
+
                 <button onclick="verwijder(${el.id})">x</button>
             </tr>
             `
+           
             )
-        document.querySelector("#tabelInhoudUsers").innerHTML = tabelInhoud
+            document.querySelector("#tabelInhoudUsers").innerHTML = tabelInhoud
+        } catch (error) {
+            console.log(error);
+        }
+
 
     }
 
@@ -76,7 +83,6 @@
         console.log(response)
         laad();
     }
-
 </script>
 
 </html>
