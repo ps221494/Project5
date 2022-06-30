@@ -826,11 +826,11 @@ select {
 .w-6 {
   width: 1.5rem;
 }
-.max-w-xl {
-  max-width: 36rem;
-}
 .max-w-6xl {
   max-width: 72rem;
+}
+.max-w-xl {
+  max-width: 36rem;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -838,11 +838,11 @@ select {
 .flex-1 {
   flex: 1 1 0%;
 }
-.flex-auto {
-  flex: 1 1 auto;
-}
 .shrink-0 {
   flex-shrink: 0;
+}
+.basis-44 {
+  flex-basis: 11rem;
 }
 .origin-top-left {
   transform-origin: top left;
