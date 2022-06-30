@@ -12,8 +12,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
-<body onload="laad()">
-    <table class="basis-44">
+<body onload="laad()" class="bg-gray-800 text-white">
+    <table class="flex-grow">
         <tr>
             <th scope="col">id</th>
             <th scope="col">Name</th>
@@ -73,6 +73,7 @@
     }
 
     const verwijder = async (id) => {
+        console.log(id)
         const response = await axios.delete(apiUsers + id, {
             headers: {
                 'Content-Type': 'application/json',
