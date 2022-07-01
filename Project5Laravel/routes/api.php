@@ -27,7 +27,7 @@ Route::apiResource('excersizes', APIexcersizes::class)
   ->parameters(['excersizes' => 'excersizes'])->only(['index']);
 
 Route::apiResource('/users', APIusers::class)
-  ->parameters(['users' => 'users'])->only(['index']);
+  ->only(['index']);
 
 
 

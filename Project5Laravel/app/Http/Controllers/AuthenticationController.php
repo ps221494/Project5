@@ -28,7 +28,7 @@ class AuthenticationController extends Controller
     {
         $attr = $request->validate([
             'email' => 'required|string|email|',
-            'password' => 'required|string|min:6'
+            'password' => 'required|string'
         ]);
         if (!Auth::attempt($attr)) {
             return response()->json(['message' => 'Credentials not match'], 401);
