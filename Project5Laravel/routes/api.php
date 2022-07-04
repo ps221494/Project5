@@ -27,7 +27,6 @@ Route::apiResource('excersizes', APIexcersizes::class)
   ->parameters(['excersizes' => 'excersizes'])->only(['index']);
 
 Route::apiResource('/users', APIusers::class)
-  ->only(['index']);
 
 
 
@@ -39,8 +38,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
   ->parameters(['excersizes' => 'excersizes'])->except(['index']);
 
   Route::apiResource('/users', APIusers::class)
-  ->parameters(['users' => 'users'])->except(['index']);
-});
+  ->parameters(['users' => 'users'])
 
   Route::post('/tokens/create', function (Request $request) {
     $token = $request->user()->createToken($request->token_name);
