@@ -35,7 +35,7 @@
         </div>
         <div class="form-login">
             <label for="password">Password</label>
-            <input type="text" class="control-login" name="password" id="ippwd"/>
+            <input type="password" class="control-login" name="password" id="ippwd"/>
         </div>
     </div>
 
