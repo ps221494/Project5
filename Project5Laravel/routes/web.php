@@ -20,8 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users',[UserController::class,'users']);
+Route::get('/users',[UserController::class,'index']);
     Route::resource('users', UserController::class);
+
+Route::get('/users/{id}',[UserController::class,'show']);
+
+Route::get('/edit/{id}', [UserController::class, 'edit']);
 
 
 Route::get('/excersizes',[excerzies::class,'oefeningen'])->middleware(['auth']);

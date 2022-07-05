@@ -59,10 +59,12 @@ class UserController extends Controller
 
     public function edit(request $request)
     {
+        //dd($request->id);
+
         $id = $request->id;
         $id = User::findOrFail($id);
 
-        return view('edit', compact('Users'));
+        return view('users.edit', compact('id'));
     }
 
     /**
@@ -72,15 +74,17 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         $validateData = $request->validate([
             'name' => 'required|max:50',
             'email' => 'required',
-            'password' => 'required',
         ]);
-        User::whereId($id)->update($validateData);
-
+    //dd($request);
+        $users = User::find($id);
+        $users->name=$request->name;
+        $users->email=$request->email;
+        $users->save();
         return redirect('/users')->with('succes', 'User succesfully updated');
     }
 
