@@ -8,17 +8,49 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 //import React from "react";
 
 export default function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [errorMsg, setErrormsg] = useState(null);
+
+  const sendLoginCredentialsRequest = async () => {
+    console.log("clicked");
+    if (password && email != null) {
+      const response = await fetch("http://127.0.0.1:8000/api/login", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+      console.log(response);
+      const jon = await response.json();
+      if (response.status == 200) {
+        setLoginReturn(jon);
+        console.log(jon);
+        props.navigation.navigate("Home", {
+          screen: "stackExcersizes",
+          params: { jon },
+        });
+      }
+
+      // .then((response) => console.log(response))
+
+      // .catch((error) => console.error(error))
+    } else {
+      setErrormsg("er is iets mis gegaan. Vul opnieuw in.");
+    }
+  };
 
   return (
     <View style={styles.container}>
-  
-
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <TextInput
@@ -43,7 +75,10 @@ export default function App() {
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity
+        onPress={sendLoginCredentialsRequest}
+        style={styles.loginBtn}
+      >
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
