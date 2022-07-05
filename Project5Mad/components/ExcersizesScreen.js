@@ -3,12 +3,16 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { ActivityIndicator, Button, Provider as PaperProvider } from 'react-native-paper';
 
-const ExcersizesScreen = ({ navigation }) => {
+const ExcersizesScreen = ({ navigation, route }) => {
   const apiExcersizes = 'http://localhost:8000/api/excersizes/';
   const [isExcersizesAvailable, setExcersizesAvailable] = useState(false);
   const [ExcersizesData, setExcersizesData] = useState(null);
+  const [item, setItem] = useState(route.params.item);
 
-  useEffect(() => { GetExcersizes(); }, []);
+  useEffect(() => {
+    console.log(item);
+    GetExcersizes();
+  }, []);
 
   const BehandelFout = (error) => {
     console.log(error);
@@ -28,14 +32,14 @@ const ExcersizesScreen = ({ navigation }) => {
       .then((response) => response.json())
       .then((data) => {
         setExcersizesData(data);
-        console.log(data);
+        //console.log(data);
       })
       .catch((error) => BehandelFout(error))
       .finally(() => setExcersizesAvailable(true));
   }
 
   const RenderExcersizes = ({ item }) => {
-    console.log(item);
+    //console.log(item);
     return (
       <View style={styles.excersizeItem}>
         <Pressable onPress={() => navigation.navigate('stackExcersizesDetails', { item: item })}>

@@ -26,6 +26,9 @@
     <div class="pull-right">
         <a class="btn btn-primary" href="{{ route('users.create') }}"> Create new user</a>
     </div>
+    <div class="pull-right">
+        <a class="btn btn-primary" href="http://localhost:8000/excersizes"> Go to excersizes</a>
+    </div>
 
     <div>
         <div class="form-login">

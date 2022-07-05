@@ -24,6 +24,9 @@
 
         <tbody id="tabelInhoudExcersizes"> </tbody>
     </table>
+    <div class="pull-right">
+        <a class="btn btn-primary" href="http://localhost:8000/users"> Go to users</a>
+    </div>
 
 </body>
 

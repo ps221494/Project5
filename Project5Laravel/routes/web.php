@@ -20,6 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/index',[UserController::class,'index']);
+    Route::resource('users', UserController::class);
+
 Route::get('/users',[UserController::class,'index']);
     Route::resource('users', UserController::class);
 

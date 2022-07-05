@@ -38,7 +38,7 @@ function ExcersizesTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="tabLogin" component={LoginScreen} />
-      <Stack.Screen name="stackExcersizes" component={ExcersizesScreen} />
+      <Stack.Screen name="Home" component={ExcersizesScreen} />
       <Tab.Screen name="Over de App" component={Over} />
     </Tab.Navigator>
   );

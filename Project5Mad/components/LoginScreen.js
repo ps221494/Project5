@@ -11,10 +11,11 @@ import {
 import React, { useState } from "react";
 //import React from "react";
 
-export default function App() {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [errorMsg, setErrormsg] = useState(null);
+  const [token,setToken] = useState();
 
   const sendLoginCredentialsRequest = async () => {
     console.log("clicked");
@@ -33,12 +34,9 @@ export default function App() {
       console.log(response);
       const jon = await response.json();
       if (response.status == 200) {
-        setLoginReturn(jon);
-        console.log(jon);
-        props.navigation.navigate("Home", {
-          screen: "stackExcersizes",
-          params: { jon },
-        });
+        setToken(jon);
+        //console.log(jon);
+        navigation.navigate("Home",{ item: token });
       }
 
       // .then((response) => console.log(response))
@@ -129,3 +127,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#FF1493",
   },
 });
+
+export default LoginScreen
