@@ -24,7 +24,10 @@ function ExcersizesStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="home" component={ExcersizesTabs} />
-      <Stack.Screen name="stackExcersizesDetails" component={ExcersizesDetailScreen} />
+      <Stack.Screen
+        name="stackExcersizesDetails"
+        component={ExcersizesDetailScreen}
+      />
     </Stack.Navigator>
   );
 }
