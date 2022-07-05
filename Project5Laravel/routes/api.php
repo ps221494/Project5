@@ -21,24 +21,27 @@ use App\Http\Controllers\excersizes;
 */
 
 //Route::apiResource('users', UserController::class);
-Route::post('/register', [AuthenticationController::class, 'register']);
-Route::post('/login', [AuthenticationController::class, 'login']);
-Route::apiResource('excersizes', APIexcersizes::class)
-  ->parameters(['excersizes' => 'excersizes'])->only(['index']);
-
-Route::apiResource('/users', APIusers::class)
-
-
-
-//protected routes
-
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
   Route::apiResource('excersizes', excersizes::class)
   ->parameters(['excersizes' => 'excersizes'])->except(['index']);
 
   Route::apiResource('/users', APIusers::class)
-  ->parameters(['users' => 'users'])
+  ->parameters(['users' => 'users']);
+
+});
+
+Route::post('/register', [AuthenticationController::class, 'register']);
+Route::post('/login', [AuthenticationController::class, 'login']);
+Route::apiResource('excersizes', APIexcersizes::class)
+  ->parameters(['excersizes' => 'excersizes'])->only(['index']);
+
+Route::apiResource('/users', APIusers::class);
+
+
+
+//protected routes
+
 
   Route::post('/tokens/create', function (Request $request) {
     $token = $request->user()->createToken($request->token_name);
